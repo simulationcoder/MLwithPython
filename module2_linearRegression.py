@@ -126,4 +126,13 @@ regr_x_fuelConsumption.fit(train_x_fuelConsumption, train_y)
 print ('Coefficients: ', regr_x_fuelConsumption.coef_)
 print ('Intercept: ',regr_x_fuelConsumption.intercept_)
 
-print(train_x_fuelConsumption)
+#testing the data set and calculating predictions
+test_y_fuelConsumption=regr_x_fuelConsumption.predict(test_x_fuelConsumption)
+
+#evaluation
+mean_absolute_error_fuelConsumption=np.mean(np.absolute(test_y_fuelConsumption-test_y))
+residualSumOfSquares_fuelConsumption=np.mean((test_y_fuelConsumption-test_y)**2)
+r2_square_fuelConsumption=r2_score(test_y_fuelConsumption,test_y)
+print("Mean absolute error: %.2f" % mean_absolute_error_fuelConsumption)
+print("Residual sum of squares (MSE): %.2f" % residualSumOfSquares_fuelConsumption)
+print("R2-score: %.2f" % r2_square_fuelConsumption)
